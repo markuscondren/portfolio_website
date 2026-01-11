@@ -1,0 +1,12 @@
+[
+  {
+    "title": "Lemon Garlic Pasta",
+    "category": "Pasta",
+    "time": "20 min",
+    "date": "2026-01-01",
+    "image": "./assets/images/lemon-garlic-pasta.jpg",
+    "pdf": "./recipes/lemon-garlic-pasta.pdf",
+    "tags": ["quick", "weekday", "vegetarian"],
+    "description": "Bright, simple, pantry-friendly."
+  }
+]
