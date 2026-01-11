@@ -1,275 +1,299 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Markus Condren — personal site." />
+    <title>Markus Condren</title>
 
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Markus Condren</title>
-	<link rel="stylesheet" href="style.css">
-	<link rel="preconnect" href="https://fonts.googleapis.com">
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link
-		href="https://fonts.googleapis.com/css2?family=Alegreya+Sans:ital,wght@0,100;0,300;0,400;0,500;0,700;0,800;0,900;1,100;1,300;1,400;1,500;1,700;1,800;1,900&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap"
-		rel="stylesheet">
-	<link rel="shortcut icon" type="image/png" href="assets/img/mc-logo.png">
-</head>
+    <style>
+      :root{
+        --bg: #07090f;
+        --card: rgba(255,255,255,0.06);
+        --card2: rgba(255,255,255,0.08);
+        --text: rgba(255,255,255,0.92);
+        --muted: rgba(255,255,255,0.68);
+        --muted2: rgba(255,255,255,0.54);
+        --border: rgba(255,255,255,0.12);
+        --shadow: 0 20px 70px rgba(0,0,0,0.55);
+        --radius: 22px;
+        --max: 1040px;
+      }
 
-<body>
-	<nav>
-		<div class="nav-container">
-			<div class="brand">
-				<a href="#home"><img id="mc-logo" src="assets/img/mc-logo.png" alt="Logo - click for home"></a>
-			</div>
-			<ul class="nav-list">
-				<li><a href="#home">Home</a></li>
-				<li><a href="#about">About</a></li>
-				<li><a href="#links">Links</a></li>
-				<li><a href="#projects">Projects</a></li>
-				<!-- <li><a href="#technology">Technology</a></li> -->
-			</ul>
-			<div class="hamburger">
-				<div class="bar"></div>
-				<div class="bar"></div>
-				<div class="bar"></div>
-			</div>
-		</div>
-	</nav>
+      * { box-sizing: border-box; }
+      html, body { height: 100%; }
+      body{
+        margin:0;
+        font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+        color: var(--text);
+        background: var(--bg);
+        overflow-x: hidden;
+      }
 
-	<section id="home">
-		<h1>Markus Alphonsus Condren</h1>
-		<div class="about-image">
-			<img src="assets/img/profile-pic.jpeg" alt="Profile Picture">
-		</div>
-	
-	</section>
+      /* Ambient background */
+      .bg {
+        position: fixed;
+        inset: -40px;
+        z-index: -2;
+        background:
+          radial-gradient(900px 600px at 15% 25%, rgba(97, 243, 255, 0.18), transparent 60%),
+          radial-gradient(900px 650px at 85% 30%, rgba(255, 120, 235, 0.16), transparent 60%),
+          radial-gradient(900px 700px at 50% 85%, rgba(154, 255, 140, 0.12), transparent 60%);
+        filter: blur(10px);
+        transform: translateZ(0);
+        animation: drift 16s ease-in-out infinite alternate;
+      }
+      @keyframes drift {
+        from { transform: translate3d(-10px, -6px, 0) scale(1); }
+        to   { transform: translate3d(12px, 10px, 0) scale(1.03); }
+      }
 
-	<section id="about">
-		<div class="about-container">
-			<div class="about-text">
-				<h2>About</h2>
-				<div class="about-background">
-					<p>Hi there! My name is Markus! I am a bilingual First Class Biomedical Science graduate
-						with a Masters
-						in
-						Software Development. Having previously had the opportunity to play professional football in Germany before an unfortunate series of injuries I have been working to develop a
-						wide range of skills to make me an asset to any organisation. My passion for technology and its
-						impact on the world around us, coupled
-						with
-						my background in science, makes me a well-rounded candidate for any technical/consultant role in
-						the
-						tech industry.
-						<br /><br />
-						During my time studying for my MSc, I gained experience in programming languages such as Java,
-						PHP,
-						and JavaScript. I also had the opportunity to work on various projects, across a wide range of
-						technologies, gaining knowledge & skills in the likes of software engineering, database design,
-						and project management to name a few. I love working with other people in a team.
-						<br /><br />
-						I aim to use my technical skills and creativity to develop
-						innovative solutions to complex problems. I am excited about the possibilities that technology
-						brings and am looking forward to working in the tech industry where I can use my skills to make
-						a
-						positive impact on people's lives. I am eager to continue learning and growing as a developer,
-						and a person.
+      /* Grain overlay */
+      .grain{
+        position: fixed;
+        inset: 0;
+        z-index: -1;
+        pointer-events: none;
+        opacity: 0.09;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)' opacity='.5'/%3E%3C/svg%3E");
+        mix-blend-mode: overlay;
+      }
 
-						I am excited about the opportunities that lie ahead.
+      main{
+        max-width: var(--max);
+        margin: 0 auto;
+        padding: 56px 20px 40px;
+      }
 
-						Get in Touch! Send me an <a id="email-link"
-							href="mailto:condrenmarkus@gmail.com?subject=Lets work!">email</a>.
-					</p>
-				</div>
-			</div>
-		</div>
-	</section>
-	<section id="links">
-		<div class="links-container">
-			<div class="links-text">
-				<h2>Links</h2>
-				<div class="links-background">
-					<ul>
-						<li><a href="https://www.linkedin.com/in/markus-condren" target="blank"><img
-									src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/linked-in-alt.svg"
-									alt="markus-condren-linked-in" height="30" width="40" /></a></li>
-						<li> <a href="https://github.com/markuscondren" target="blank"><img
-									src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/github.svg"
-									alt="foncyjr-stack-overflow" height="30" width="40" /></a>
-						</li>
-						<li>
-							<a href="https://stackoverflow.com/users/17098422/foncyjr" target="blank"><img
-									src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/stack-overflow.svg"
-									alt="foncyjr-stack-overflow" height="30" width="40" /></a>
-						</li>
+      header{
+        display:flex;
+        align-items:center;
+        justify-content: space-between;
+        gap: 14px;
+        padding: 14px 0 28px;
+      }
 
-					</ul>
-				</div>
-			</div>
-		</div>
-	</section>
-	<section id="projects">
-		<div class="projects-container">
-			<h2>Projects</h2>
+      .logo{
+        display:flex;
+        align-items:center;
+        gap: 12px;
+        user-select:none;
+      }
+      .mark{
+        width: 38px;
+        height: 38px;
+        border-radius: 12px;
+        background: linear-gradient(135deg, rgba(255,255,255,0.22), rgba(255,255,255,0.05));
+        border: 1px solid var(--border);
+        box-shadow: 0 10px 25px rgba(0,0,0,0.35);
+        display:grid;
+        place-items:center;
+        font-weight: 700;
+        letter-spacing: 0.4px;
+      }
+      .logo span{
+        font-weight: 650;
+        letter-spacing: 0.2px;
+      }
 
-			<div class="project">
-				<h3>Artemis Lite</h3>
-				<div class="video-wrapper">
-					<div id="player1"></div>
-				</div>
-				<h4>Description</h4>
-				<p>
-					"Artemis Lite" is a virtual board game written in Java, based on the NASA's Artemis program.
-					Players assume the role of space explorers, working together to build and expand their
-					space stations on the moon, while managing their limited resources. The game incorporates real-world
-					science and technology related
-					to the Artemis program, providing an educational and immersive experience for players.
-					<br /><br />
-					As part of the development team for "Artemis Lite", my responsibilities included contributing
-					to the design and refactoring of the final code, providing input on the development of certain
-					methods,
-					classes, and test classes, and participating in the initial requirement analysis. I also finalized
-					the requirement analysis for the project report and created use case descriptions for the buy and
-					develop elements of the game. As the customer representative, I helped to further the flow, design,
-					and development of the game, including creating the virtual game board and providing initial
-					sequence diagrams and commentaries for the buy/develop element and end game. I was also responsible
-					for creating the final sequence diagram for the sell element, the UML class diagram and class
-					descriptions for the report, and conducting a video run-through of the game's code.
-					<br />
-				</p>
-				<h5>Technology</h5>
-				<p>
-					Java<br />
-					Eclipse IDE <br /><br />
-				</p>
-				</p>
+      .pill{
+        display:inline-flex;
+        align-items:center;
+        gap: 10px;
+        padding: 10px 14px;
+        border-radius: 999px;
+        background: rgba(255,255,255,0.06);
+        border: 1px solid var(--border);
+        color: var(--muted);
+        font-size: 13px;
+        backdrop-filter: blur(12px);
+      }
+      .dot{
+        width: 8px; height: 8px; border-radius: 999px;
+        background: rgba(154, 255, 140, 0.9);
+        box-shadow: 0 0 18px rgba(154, 255, 140, 0.45);
+      }
 
-				<a href="https://github.com/markuscondren/artemis-lite" target="_blank">GitHub Repo</a>
-			</div>
-			<div class="project">
-				<h3>Causeway Coast & Glens BeachSmart</h3>
+      .hero{
+        border-radius: var(--radius);
+        background: linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.04));
+        border: 1px solid var(--border);
+        box-shadow: var(--shadow);
+        padding: 34px;
+        backdrop-filter: blur(14px);
+      }
 
-				<div class="video-wrapper">
-					<div id="player2"></div>
-				</div>
-				<h4>Description</h4>
-				<p>BeachSmart is an app, developed in congunction with Causeway Coast & Glens Council that aims to
-					inform residents and visitors on how to enjoy the UK's coastline in
-					a safe and
-					environmentally friendly way. The app is designed to act as a hub for beach smart, with an
-					interactive map using Open Street Maps and LeafletJS, as well as an administrative portal and API
-					written in PHP. The project is a proof of concept for the BeachSmart app, focusing on Portstewart's
-					coastline and points of interest.
-					<br /><br />
-					The BeachSmart app has the potential to be an excellent tool for locals and tourists alike,
-					providing valuable information about the UK's coastline and helping to promote responsible beach
-					use. The use of ReactJS for the front-end, along with Bootstrap 5 and React-Bootstrap for styling,
-					ensures that the app is user-friendly and visually appealing. While the app developed during this
-					project is not a complete product, it demonstrates the potential for a professionally developed
-					BeachSmart app to have a significant impact on public awareness of beach safety and environmental
-					conservation. With the importance of the UK's coastline in public consciousness, this project has
-					the potential to make a real difference to the safety and enjoyment of those visiting the country's
-					beaches.
-					<br /><br />
-				</p>
-				<h5>Technology</h5>
-				<p>
-					HTML, CSS, JavaScript<br />
-					ReactJS<br />
-					LeafletJS<br />
-					OpenStreetMaps<br />
-					SQL<br />
-					PHP<br />
-					G.I.M.P<br />
-					VSCode<br /><br />
-				</p>
+      h1{
+        margin: 0 0 10px;
+        font-size: clamp(36px, 4.5vw, 60px);
+        line-height: 1.02;
+        letter-spacing: -0.9px;
+      }
+      .sub{
+        margin: 0 0 22px;
+        font-size: clamp(16px, 1.6vw, 18px);
+        color: var(--muted);
+        max-width: 62ch;
+      }
 
-				<a href="https://github.com/markuscondren/CCG-BeachSmart-App" target="_blank">GitHub Repo (App)</a>
-				<a href="https://github.com/markuscondren/CCG-BeachSmart-API" target="_blank">GitHub Repo (API)</a>
-				<a href="assets/files/Markus_Condren_Dissertation_MSc_Software_Development.pdf"
-					target="_blank">Dissertation</a>
-			</div>
-			<!-- <div class="project">
-				<h3>Project 3 Title</h3>
-				<img src="project3-image.jpg" alt="Project 3 Image">
-				<div class="video-wrapper">
-					<div id="player2"></div>
-				  </div>
-				<h4>Description</h4>
-				<p>Description
-					<br />
-				</p>
-				<h5>Technology</h5>
-				<ul>
-					<li></li>
-					<li></li>
-					<li></li>
-				</ul>
+      .ctaRow{
+        display:flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: 10px;
+      }
 
-				<a href="https://github.com/markuscondren/project3" target="_blank">GitHub Repo</a>
-			</div> -->
-		</div>
-	</section>
+      a.btn{
+        display:inline-flex;
+        align-items:center;
+        gap: 10px;
+        padding: 12px 14px;
+        border-radius: 14px;
+        border: 1px solid var(--border);
+        text-decoration:none;
+        color: var(--text);
+        background: rgba(255,255,255,0.06);
+        transition: transform .18s ease, background .18s ease, border-color .18s ease;
+      }
+      a.btn:hover{
+        transform: translateY(-1px);
+        background: rgba(255,255,255,0.09);
+        border-color: rgba(255,255,255,0.18);
+      }
+      a.btn.primary{
+        background: linear-gradient(135deg, rgba(97, 243, 255, 0.20), rgba(255, 120, 235, 0.16));
+        border-color: rgba(255,255,255,0.18);
+      }
 
+      .grid{
+        display:grid;
+        grid-template-columns: 1.3fr 1fr;
+        gap: 14px;
+        margin-top: 14px;
+      }
+      @media (max-width: 860px){
+        .grid{ grid-template-columns: 1fr; }
+      }
 
-	<!-- <section id="technology">
-		<div class="technology-container">
-			<div class="technology-text">
-				<h2>Technologies</h2>
-				<div class="technology-background">
-					<ul>
-						<li><a href="https://www.java.com" target="_blank" rel="noreferrer"> <img
-									src="https://raw.githubusercontent.com/devicons/devicon/master/icons/java/java-original.svg"
-									alt="java" width="40" height="40" /> </a> </li>
-						<li><a href="https://www.php.net" target="_blank" rel="noreferrer"> <img
-									src="https://raw.githubusercontent.com/devicons/devicon/master/icons/php/php-original.svg"
-									alt="php" width="40" height="40" /> </a></p>
-						</li>
-						<li><a href="https://www.w3.org/html/" target="_blank" rel="noreferrer"> <img
-									src="https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original-wordmark.svg"
-									alt="html5" width="40" height="40" /> </a></li>
-						<li><a href="https://www.w3schools.com/css/" target="_blank" rel="noreferrer"> <img
-									src="https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original-wordmark.svg"
-									alt="css3" width="40" height="40" /> </a>
-						</li>
-						<li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank"
-								rel="noreferrer"> <img
-									src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg"
-									alt="javascript" width="40" height="40" /> </a> </li>
-						<li><a href="https://www.mysql.com/" target="_blank" rel="noreferrer"> <img
-									src="https://raw.githubusercontent.com/devicons/devicon/master/icons/mysql/mysql-original-wordmark.svg"
-									alt="mysql" width="40" height="40" /> </a> </li>
-						<li><a href="https://git-scm.com/" target="_blank" rel="noreferrer"> <img
-									src="https://www.vectorlogo.zone/logos/git-scm/git-scm-icon.svg" alt="git"
-									width="40" height="40" /> </a></li>
+      .card{
+        border-radius: var(--radius);
+        border: 1px solid var(--border);
+        background: rgba(255,255,255,0.05);
+        box-shadow: 0 10px 35px rgba(0,0,0,0.35);
+        backdrop-filter: blur(14px);
+        padding: 22px;
+      }
+      .kicker{
+        color: var(--muted2);
+        font-size: 13px;
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+        margin: 0 0 10px;
+      }
+      .card h2{
+        margin: 0 0 10px;
+        font-size: 18px;
+        letter-spacing: -0.2px;
+      }
+      .card p, .card li{
+        color: var(--muted);
+        line-height: 1.6;
+        font-size: 15px;
+      }
 
-					</ul>
-				</div>
-			</div>
-		</div>
-	</section> -->
+      ul{
+        margin: 10px 0 0;
+        padding-left: 18px;
+      }
 
-	<!-- No PHP on static website so simpler mailto used above. Will incorporate contact forms and change to dynamic hosting as needed.
-		
-		
-		<section id="contact">
-		<h2>Contact</h2>
-		<form action="contact.php" method="POST">
-			<label for="name">Name:</label>
-			<input type="text" name="name" required>
+      footer{
+        margin-top: 18px;
+        padding: 18px 6px 0;
+        display:flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 10px;
+        color: var(--muted2);
+        font-size: 13px;
+      }
 
-			<label for="email">Email:</label>
-			<input type="email" name="email" required>
+      .mono{ font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; }
+    </style>
+  </head>
 
-			<label for="message">Message:</label>
-			<textarea name="message" required></textarea>
+  <body>
+    <div class="bg" aria-hidden="true"></div>
+    <div class="grain" aria-hidden="true"></div>
 
-			<input type="submit" value="Send">
-		</form>
-	</section> -->
+    <main>
+      <header>
+        <div class="logo">
+          <div class="mark">MC</div>
+          <span>Markus Condren</span>
+        </div>
+        <div class="pill"><span class="dot" aria-hidden="true"></span> building in public (lightly)</div>
+      </header>
 
+      <section class="hero">
+        <h1>Hi — I’m Markus.</h1>
+        <p class="sub">
+          This site is a small home base while I rebuild it. Expect a clean portfolio + experiments soon.
+          For now: a minimal landing page with a few safe links.
+        </p>
 
-	<div id="lower-buffer">
-		<!--just to give some space quickly, bottom of screen flashes when using a fast mouse - should fix but come back and do it better-->
-	</div>
-	<script src="script.js"></script>
-</body>
+        <div class="ctaRow">
+          <a class="btn primary" href="#" id="link-github">GitHub</a>
+          <a class="btn" href="#" id="link-linkedin">LinkedIn</a>
+          <a class="btn" href="#" id="link-projects">Projects (soon)</a>
+        </div>
+      </section>
 
+      <section class="grid">
+        <div class="card">
+          <p class="kicker">Now</p>
+          <h2>What I’m focused on</h2>
+          <ul>
+            <li>Building small, polished web projects.</li>
+            <li>Sharpening frontend engineering + design taste.</li>
+            <li>Exploring ideas in public—carefully.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <p class="kicker">Status</p>
+          <h2>Site refresh in progress</h2>
+          <p>
+            I’ve removed older content for privacy. This page stays intentionally lightweight:
+            no tracking, no blog spam, no clutter.
+          </p>
+          <p class="mono" style="margin-top:12px;">
+            last updated: <span id="updated"></span>
+          </p>
+        </div>
+      </section>
+
+      <footer>
+        <div>© <span id="year"></span> Markus Condren</div>
+        <div class="mono">markuscondren.com</div>
+      </footer>
+    </main>
+
+    <script>
+      // Edit these safely:
+      const LINKS = {
+        github: "https://github.com/",      // <- put your profile URL
+        linkedin: "https://www.linkedin.com/", // <- put your profile URL
+        projects: "#"
+      };
+
+      document.getElementById("link-github").href = LINKS.github;
+      document.getElementById("link-linkedin").href = LINKS.linkedin;
+      document.getElementById("link-projects").href = LINKS.projects;
+
+      // Footer bits
+      document.getElementById("year").textContent = new Date().getFullYear();
+      document.getElementById("updated").textContent =
+        new Date().toLocaleDateString(undefined, { year: "numeric", month: "short", day: "2-digit" });
+    </script>
+  </body>
 </html>
